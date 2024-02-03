@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Redirect Page</title>
+    <script>
+        function redirectToRandomSite() {
+            var sites = [
+                "https://www.google.co.jp",
+                "https://www.apple.com/jp/",
+                "https://twitter.com/",
+                "https://store.steampowered.com/"
+            ];
+
+            var randomIndex = Math.floor(Math.random() * sites.length);
+            setTimeout(function() {
+                window.location.href = sites[randomIndex];
+            }, 2000); // 2 seconds delay
+        }
+    </script>
+</head>
+<body onload="redirectToRandomSite()">
+    <p>Redirecting to a random site...</p>
+  <p>Redirect after 2 seconds...</p>
+</body>
+</html>
