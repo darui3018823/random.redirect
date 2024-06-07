@@ -1,34 +1,42 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="ja">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
         
-    <meta property="og:title" content="Random redirect">
-    <meta property="og:description" content="Created by darui3018823">
     <meta property="og:type" content="website">
+    <meta property="og:site_name" content="redirect">
+    <meta property="og:title" content="Random Redirect">
+    <meta property="og:description" content="Created by darui3018823">
         
     <title>Redirect Page</title>
     <script>
         function redirectToRandomSite() {
             var sites = [
-                "https://discord.com/"
-                "https://osu.ppy.sh/"
-                "https://www.google.co.jp",
-                "https://www.apple.com/jp/",
-                "https://twitter.com/",
-                "https://store.steampowered.com/"
+                { url: "https://discord.com/", name: "discord" },
+                { url: "https://osu.ppy.sh/", name: "osu!" },
+                { url: "https://www.google.co.jp", name: "Google" },
+                { url: "https://www.apple.com/jp/", name: "Apple" },
+                { url: "https://twitter.com/", name: "Twitter" },
+                { url: "https://store.steampowered.com/", name: "steam" }
             ];
 
             var randomIndex = Math.floor(Math.random() * sites.length);
+            var selectedSite = sites[randomIndex];
+
             setTimeout(function() {
-                window.location.href = sites[randomIndex];
-            }, 2000); // 2 seconds delay
+                document.getElementById("access-info").textContent = "Access to " + selectedSite.name + "…";
+            }, 1850);
+
+            setTimeout(function() {
+                window.location.href = selectedSite.url;
+            }, 2000);
         }
     </script>
 </head>
 <body onload="redirectToRandomSite()">
     <p>Redirecting to a random site...</p>
     <p>Redirect after 2 seconds...</p>
+    <p id="access-info"></p>
 </body>
 </html>
